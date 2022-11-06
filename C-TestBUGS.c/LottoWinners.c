@@ -15,12 +15,38 @@ lotto* tail = NULL;
 
 void lottoData();
 void buildList(int,char[]);
-void printTheList();
+void checkLotNum(int);
+void releaseTheList();
 
 int main()
 {
+	char userResponses=NULL;
+	int lotNum;
 	lottoData();
-	//printTheList();
+
+	while (userResponses != 'Q')
+	{
+		printf("Dear user, there is options for you:\n1 N-Enter the number of the lottery you want to see his date\n2 q-Quit\n");
+		scanf(" %c", &userResponses);
+
+		switch (userResponses)
+		{
+		case'N':
+			printf("Please enter the lottery number:");
+			scanf("%d", &lotNum);
+			checkLotNum(lotNum);
+			break;
+		case'Q':
+			releaseTheList();
+			break;
+		default:
+			printf("Wrong selection, pls be more sharp");
+			break;
+		}
+
+	}
+
+
 }
 
 void lottoData()
@@ -77,10 +103,26 @@ void buildList(int num, char date[])
 	}
 	return;
 }
-void printTheList() {
+
+void checkLotNum(int lotNum)
+{
 	lotto* curr = head;
-	while (curr) {
-		printf("num %d date %s\n", curr->lotteryNum, curr->lotteryDate);
+	while (curr)
+	{
+		if (lotNum == curr->lotteryNum)
+		{
+			printf("Lottery date you asked for: %s\n", curr->lotteryDate);
+			return;
+		}
 		curr = curr->next;
+	}
+	printf("There is no lottery number founded");
+}
+void releaseTheList() {
+	struct item* freeTheList;
+	while (head) {
+		freeTheList = head;
+		head = head->next;
+		free(freeTheList);
 	}
 }

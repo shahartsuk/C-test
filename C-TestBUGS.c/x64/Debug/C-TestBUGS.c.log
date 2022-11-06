@@ -1,2 +1,4 @@
 ﻿  LottoWinners.c
+C:\Users\97254\source\repos\C-TestBUGS.c\C-TestBUGS.c\LottoWinners.c(23,1): warning C4047: 'initializing': 'char' differs in levels of indirection from 'void *'
+C:\Users\97254\source\repos\C-TestBUGS.c\C-TestBUGS.c\LottoWinners.c(124,21): warning C4133: '=': incompatible types - from 'lotto *' to 'item *'
   C-TestBUGS.c.vcxproj -> C:\Users\97254\source\repos\C-TestBUGS.c\x64\Debug\C-TestBUGS.c.exe
